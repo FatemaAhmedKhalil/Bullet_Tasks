@@ -1,18 +1,18 @@
 # Using `strace` to Trace System Calls with Error Reporting
 
 1. **Navigate to the Project Directory**  
-   Make sure you are in the directory where your executable is located.
+   Make sure you are in the directory where your **executable** is located.
    
 2. **Run `strace -c` to Trace System Calls with Error Summary**  
    The `-c` option provides a summary of the time spent, the number of calls, and any errors. Execute:
    ```bash
-   strace -c ./straceTask
+   strace -c ./strace
    ```
    
 3. **Save Detailed Output to a Log File**  
    If you want to save the detailed output to a file, use the `-o` option:
    ```bash
-   strace -o straceTask.txt ./straceTask
+   strace -o strace.txt ./strace
    ```
    
 ## Output with Errors
