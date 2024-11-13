@@ -349,5 +349,139 @@ strace -c cmp
 | **System Interaction Identification** | interactes with memory managment, file system , signal, process management stacks  | interactes with memory managment, file system , signal, process management stacks |
 | **Syscall Time Breakdown** | 0.002084  sec | 0.001698 sec |
 
-**Performance Evaluation**       diff is better 
+**Performance Evaluation**       diff is better
 
+---
+**sort** vs **uniq**
+
+`sort` Sort lines of text files.
+
+`uniq`  Output the unique lines from a input or file.Since it does not detect repeated lines unless they are adjacent, we need to sort them first.
+
+# Time Measurement
+```bash
+time sort
+```
+```plaintext
+??
+```
+
+```bash
+time uniq
+```
+```plaintext
+??
+```
+
+---
+**grep** vs **sed**
+
+`grep` Find patterns in files using regular expressions.
+
+`sed`  Edit text in a scriptable manner.
+
+# Time Measurement
+```bash
+time grep
+```
+```plaintext
+real	0m0.004s
+user	0m0.000s
+sys	0m0.004s
+```
+
+```bash
+time sed
+```
+```plaintext
+real	0m0.004s
+user	0m0.002s
+sys	0m0.003s
+```
+# System Interaction Identification
+```bash
+strace -e trace=network grep -a 
+strace -e trace=memory grep -a 
+strace -e trace=file grep -a
+strace -e trace=process grep -a
+strace -e trace=signal grep -a 
+```
+
+```bash
+strace -e trace=network sed -a 
+strace -e trace=memory sed -a 
+strace -e trace=file sed -a
+strace -e trace=process sed -a
+strace -e trace=signal sed -a
+```
+# Syscall Time Breakdown
+```bash
+strace -c grep
+```
+```plaintext
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 27.08    0.000104           9        11         4 openat
+ 18.23    0.000070           4        15           mmap
+ 15.10    0.000058           9         6           read
+ 12.50    0.000048           9         5           mprotect
+  5.99    0.000023           2         9           close
+  5.21    0.000020          10         2           munmap
+  3.39    0.000013           2         6           newfstatat
+  3.12    0.000012           4         3           brk
+  1.56    0.000006           6         1           lseek
+  1.30    0.000005           5         1           futex
+  1.30    0.000005           5         1           prlimit64
+  1.30    0.000005           5         1           getrandom
+  1.04    0.000004           2         2         1 arch_prctl
+  1.04    0.000004           4         1           set_tid_address
+  1.04    0.000004           4         1           set_robust_list
+  0.78    0.000003           3         1           rseq
+  0.00    0.000000           0         2           write
+  0.00    0.000000           0         2           rt_sigaction
+  0.00    0.000000           0         4           pread64
+  0.00    0.000000           0         1         1 access
+  0.00    0.000000           0         1           execve
+  0.00    0.000000           0         1           sigaltstack
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.000384           4        77         6 total
+```
+```bash
+strace -c sed
+```
+```plaintext
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 24.61    0.000691          30        23           mmap
+ 23.47    0.000659         659         1           execve
+ 10.83    0.000304          16        18           write
+  9.79    0.000275          21        13         4 openat
+  9.22    0.000259          28         9           mprotect
+  4.13    0.000116          14         8           read
+  4.13    0.000116          11        10           close
+  3.21    0.000090          10         9           newfstatat
+  1.85    0.000052          52         1           munmap
+  1.60    0.000045          22         2         2 statfs
+  1.32    0.000037          12         3           brk
+  1.32    0.000037           9         4           pread64
+  1.14    0.000032          16         2         2 access
+  0.89    0.000025          12         2         1 arch_prctl
+  0.50    0.000014          14         1           set_tid_address
+  0.46    0.000013          13         1           set_robust_list
+  0.43    0.000012          12         1           rseq
+  0.39    0.000011          11         1           getrandom
+  0.36    0.000010          10         1           futex
+  0.36    0.000010          10         1           prlimit64
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.002808          25       111         9 total
+```
+##  Comparison Table
+|                 | `grep`                            | `sed`                           |
+|------------------------|---------------------------------|----------------------------------|
+| **Time Measurement**   | Excution time is better | kernal time is better |
+| **System Interaction Identification** | interactes with memory managment, file system , signal and process management stacks  | interactes with memory managment, file system and process management stacks |
+| **Syscall Time Breakdown** | 0.000384  sec | 0.002808 sec |
+
+**Performance Evaluation**       grep is better
+
+---
