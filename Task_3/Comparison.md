@@ -13,6 +13,16 @@ real	0m0.004s
 user	0m0.001s
 sys	0m0.003s
 ```
+
+```bash
+time find
+```
+```plaintext
+real	0m0.004s
+user	0m0.000s
+sys	0m0.004s
+
+```
 `find`  Find files or directories under a directory tree, recursively.
 
 ##  Comparison Table
