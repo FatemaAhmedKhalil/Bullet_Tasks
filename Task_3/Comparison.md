@@ -119,8 +119,7 @@ strace -c find
 
 **Performance Evaluation**       ls is better            
 
-#--------------------------------------------------------------------------
-
+---
 **cp** vs **rsync**
 
 `cp` Copy files and directories.
