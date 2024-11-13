@@ -1,7 +1,10 @@
 # Comparison between Various Commands
 
 **ls** vs **find**
+
 `ls` List directory contents.
+
+# Time Measurement
 ```bash
 time ls
 ```
