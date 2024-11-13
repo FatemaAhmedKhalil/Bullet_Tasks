@@ -5,7 +5,7 @@ This repository contains solutions to tasks from the Embedded Linux Diploma, org
 ## Folder Structure
 - **Task_1**: User Registration Application (Sign-Up).
 - **Task_2**: Using strace to Trace System Calls with Error Reporting.
-- **Task_3** Comparison between Various Commands.
+- **Task_3**: Comparison between Various Commands.
 - ...
 
 ## Task Details
