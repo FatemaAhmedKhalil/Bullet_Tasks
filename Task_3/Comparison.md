@@ -26,9 +26,9 @@ sys	0m0.004s
 
 ```
 ##  Comparison Table
-| Feature                | \`ls\`                           | \`find\`                           |
+| Feature                | `ls`                            | `find`                           |
 |------------------------|---------------------------------|----------------------------------|
-| **Time Measurement**           | execution time is better                               | kernal time is better
+| **Time Measurement**   | Kernal time is better           | Excution time is better
 | **System Interaction Identification**        | Lists files in the current dir  | Lists files based on criteria (name, type, etc.) |
 | **Syscall Time Breakdown**    | Yes (\`*.txt\`)                   | Yes (with \`-name\` option)        |
 | **Performance Evaluation**      | No                              | Yes (\`-type\` option)             |
