@@ -148,11 +148,8 @@ sys	0m0.005s
 ```
 # System Interaction Identification
 ```bash
-strace -e trace=network cp -a 
 strace -e trace=memory cp -a 
 strace -e trace=file cp -a
-strace -e trace=process cp -a
-strace -e trace=signal cp -a 
 ```
 
 ```bash
@@ -263,7 +260,6 @@ sys	0m0.003s
 ```
 # System Interaction Identification
 ```bash
-strace -e trace=network diff -a 
 strace -e trace=memory diff -a 
 strace -e trace=file diff -a
 strace -e trace=process diff -a
@@ -271,7 +267,6 @@ strace -e trace=signal diff -a
 ```
 
 ```bash
-strace -e trace=network cmp -a 
 strace -e trace=memory cmp -a 
 strace -e trace=file cmp -a
 strace -e trace=process cmp -a
@@ -340,7 +335,6 @@ strace -c cmp
   0.00    0.000000           0         1           getrandom
 ------ ----------- ----------- --------- --------- ----------------
 100.00    0.001698          24        68         6 total
-
 ```
 ##  Comparison Table
 |                 | `diff`                            | `cmp`                           |
@@ -372,6 +366,41 @@ time uniq
 ```plaintext
 ??
 ```
+# System Interaction Identification
+```bash
+strace -e trace=memory sort -a 
+strace -e trace=file sort -a
+strace -e trace=process sort -a
+strace -e trace=signal sort -a 
+```
+
+```bash
+strace -e trace=memory uniq -a 
+strace -e trace=file uniq -a
+strace -e trace=process uniq -a
+```
+# Syscall Time Breakdown
+```bash
+strace -c sort
+```
+```plaintext
+???
+```
+```bash
+strace -c uniq
+```
+```plaintext
+???
+```
+
+##  Comparison Table
+|                 | `sort`                            | `uniq`                           |
+|------------------------|---------------------------------|----------------------------------|
+| **Time Measurement**   | ?? | ?? |
+| **System Interaction Identification** | interactes with memory managment, file system , signal and process management stacks  | interactes with memory managment, file system and process management stacks |
+| **Syscall Time Breakdown** | ??  sec | ?? sec |
+
+**Performance Evaluation**       grep is better
 
 ---
 **grep** vs **sed**
@@ -400,7 +429,6 @@ sys	0m0.003s
 ```
 # System Interaction Identification
 ```bash
-strace -e trace=network grep -a 
 strace -e trace=memory grep -a 
 strace -e trace=file grep -a
 strace -e trace=process grep -a
@@ -408,11 +436,9 @@ strace -e trace=signal grep -a
 ```
 
 ```bash
-strace -e trace=network sed -a 
 strace -e trace=memory sed -a 
 strace -e trace=file sed -a
 strace -e trace=process sed -a
-strace -e trace=signal sed -a
 ```
 # Syscall Time Breakdown
 ```bash
