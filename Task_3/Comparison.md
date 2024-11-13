@@ -118,3 +118,11 @@ strace -c find
 | **Syscall Time Breakdown** | 0.000844 sec | 0.477333 sec |
 
 **Performance Evaluation**       ls is better            
+
+#--------------------------------------------------------------------------
+
+**cp** vs **rsync**
+
+`cp` Copy files and directories.
+
+`rsync`  Transfer files either to or from a remote host (but not between two remote hosts).
