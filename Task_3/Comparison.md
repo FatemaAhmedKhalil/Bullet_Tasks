@@ -115,5 +115,6 @@ strace -c find
 |------------------------|---------------------------------|----------------------------------|
 | **Time Measurement**   | Kernal time is better           | Excution time is better
 | **System Interaction Identification** | interactes with memory managment, network, file system, signal, process management stacks | interactes with memory managment, network, file system, signal, process management stacks |
-| **Syscall Time Breakdown** | 0.000844 | 0.477333 |
+| **Syscall Time Breakdown** | 0.000844 sec | 0.477333 sec |
+
 **Performance Evaluation**       ls is better            
