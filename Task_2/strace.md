@@ -1,15 +1,20 @@
 # Using `strace` to Trace System Calls with Error Reporting
 
-1. **Navigate to the Project Directory**  
+1. **Get the excutable of the code**
+   ```bash
+   g++ strace.cpp -o strace
+   ```
+     
+2. **Navigate to the Project Directory**  
    Make sure you are in the directory where your **executable** is located.
    
-2. **Run `strace -c` to Trace System Calls with Error Summary**  
+3. **Run `strace -c` to Trace System Calls with Error Summary**  
    The `-c` option provides a summary of the time spent, the number of calls, and any errors. Execute:
    ```bash
    strace -c ./strace
    ```
    
-3. **Save Detailed Output to a Log File**  
+4. **Save Detailed Output to a Log File**  
    If you want to save the detailed output to a file, use the `-o` option:
    ```bash
    strace -o strace.txt ./strace
