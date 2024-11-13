@@ -1,19 +1,20 @@
-# Using `strace -c` to Trace System Calls with Error Reporting
+# Using `strace` to Trace System Calls with Error Reporting
+
 1. **Navigate to the Project Directory**  
    Make sure you are in the directory where your executable is located.
    
 2. **Run `strace -c` to Trace System Calls with Error Summary**  
    The `-c` option provides a summary of the time spent, the number of calls, and any errors. Execute:
-
    ```bash
    strace -c ./straceTask
    ```
-3. **Save Detailed Output to a Log File (Optional)**  
+   
+3. **Save Detailed Output to a Log File**  
    If you want to save the detailed output to a file, use the `-o` option:
-
    ```bash
    strace -o straceTask.txt ./straceTask
    ```
+   
 ## Output with Errors
 ```plaintext
 Error: File not found!
@@ -39,8 +40,9 @@ Error: File not found!
   0.36    0.000008           8         1           set_tid_address
   0.36    0.000008           8         1           prlimit64
 ------ ----------- ----------- --------- --------- ----------------
+100.00    0.000374           5        69         3 total
 ```
 
 In this output:
 - **`openat` and `access`**: Errors due to missing files.
-- **`arch_prctl`**: Shows an error, which may indicate invalid arguments or unsupported operations on this system.
+- **`arch_prctl`**: indicates invalid arguments.
