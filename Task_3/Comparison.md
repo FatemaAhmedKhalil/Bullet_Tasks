@@ -1,7 +1,8 @@
 # Comparison between Various Commands
 
 `ls` vs `find`
-
+**ls** List directory contents.
+**find**  Find files or directories under a directory tree, recursively.
 ##  Comparison Table
 | Feature                | \`ls\`                           | \`find\`                           |
 |------------------------|---------------------------------|----------------------------------|
