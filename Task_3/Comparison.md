@@ -400,7 +400,7 @@ strace -c uniq
 | **System Interaction Identification** | interactes with memory managment, file system , signal and process management stacks  | interactes with memory managment, file system and process management stacks |
 | **Syscall Time Breakdown** | ??  sec | ?? sec |
 
-**Performance Evaluation**       grep is better
+**Performance Evaluation**       ?? is better
 
 ---
 **grep** vs **sed**
