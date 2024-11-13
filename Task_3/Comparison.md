@@ -3,6 +3,7 @@
 **ls** vs **find**
 
 `ls` List directory contents.
+
 `find`  Find files or directories under a directory tree, recursively.
 
 # Time Measurement
@@ -27,7 +28,7 @@ sys	0m0.004s
 ##  Comparison Table
 | Feature                | \`ls\`                           | \`find\`                           |
 |------------------------|---------------------------------|----------------------------------|
-| **Time Measurement**           | Yes                              |
+| **Time Measurement**           | execution time is better                               | kernal time is better
 | **System Interaction Identification**        | Lists files in the current dir  | Lists files based on criteria (name, type, etc.) |
 | **Syscall Time Breakdown**    | Yes (\`*.txt\`)                   | Yes (with \`-name\` option)        |
 | **Performance Evaluation**      | No                              | Yes (\`-type\` option)             |
