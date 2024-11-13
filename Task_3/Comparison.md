@@ -2,7 +2,16 @@
 
 **ls** vs **find**
 `ls` List directory contents.
+```bash
+time ls
+```
+```plaintext
+real	0m0.004s
+user	0m0.001s
+sys	0m0.003s
+```
 `find`  Find files or directories under a directory tree, recursively.
+
 ##  Comparison Table
 | Feature                | \`ls\`                           | \`find\`                           |
 |------------------------|---------------------------------|----------------------------------|
