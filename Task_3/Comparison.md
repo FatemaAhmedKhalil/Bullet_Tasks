@@ -234,3 +234,120 @@ strace -c rsync
 | **Syscall Time Breakdown** | 0.002549 sec | 0.000716 sec |
 
 **Performance Evaluation**       cp is better 
+
+
+---
+**diff** vs **cmp**
+
+`cmp` Compare two files byte by byte.
+
+`diff`  Compare files and directories.
+
+# Time Measurement
+```bash
+time diff
+```
+```plaintext
+real	0m0.090s
+user	0m0.000s
+sys	0m0.004
+```
+
+```bash
+time cmp
+```
+```plaintext
+real	0m0.004s
+user	0m0.001s
+sys	0m0.003s
+```
+# System Interaction Identification
+```bash
+strace -e trace=network diff -a 
+strace -e trace=memory diff -a 
+strace -e trace=file diff -a
+strace -e trace=process diff -a
+strace -e trace=signal diff -a 
+```
+
+```bash
+strace -e trace=network cmp -a 
+strace -e trace=memory cmp -a 
+strace -e trace=file cmp -a
+strace -e trace=process cmp -a
+strace -e trace=signal cmp -a
+```
+
+# Syscall Time Breakdown
+```bash
+strace -c diff
+```
+```plaintext
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 31.53    0.000657         657         1           execve
+ 14.83    0.000309          30        10           mmap
+ 12.43    0.000259          28         9         4 openat
+  6.86    0.000143          35         4           mprotect
+  6.81    0.000142          28         5           read
+  5.47    0.000114          57         2           munmap
+  4.17    0.000087          14         6           write
+  3.31    0.000069          13         5           close
+  2.83    0.000059          19         3           brk
+  2.50    0.000052          13         4           newfstatat
+  1.73    0.000036           9         4           pread64
+  1.49    0.000031          15         2         1 arch_prctl
+  1.20    0.000025           8         3           fcntl
+  0.82    0.000017           8         2           rt_sigaction
+  0.72    0.000015          15         1         1 access
+  0.72    0.000015          15         1           set_tid_address
+  0.53    0.000011          11         1           getrandom
+  0.48    0.000010          10         1           prlimit64
+  0.43    0.000009           9         1           sigaltstack
+  0.38    0.000008           8         1           lseek
+  0.38    0.000008           8         1           set_robust_list
+  0.38    0.000008           8         1           rseq
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.002084          30        68         6 total
+```
+```bash
+strace -c cmp
+```
+```plaintext
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 38.75    0.000658         658         1           execve
+ 16.20    0.000275          27        10           mmap
+ 11.07    0.000188          20         9         4 openat
+  6.07    0.000103          25         4           mprotect
+  6.01    0.000102          20         5           read
+  5.12    0.000087          14         6           write
+  3.83    0.000065          13         5           close
+  2.12    0.000036           9         4           pread64
+  1.94    0.000033          16         2           munmap
+  1.65    0.000028           7         4           newfstatat
+  1.24    0.000021          10         2         1 arch_prctl
+  1.18    0.000020           6         3           brk
+  1.00    0.000017          17         1         1 access
+  0.94    0.000016           5         3           fcntl
+  0.71    0.000012           6         2           rt_sigaction
+  0.53    0.000009           9         1           set_tid_address
+  0.47    0.000008           8         1           set_robust_list
+  0.47    0.000008           8         1           rseq
+  0.35    0.000006           6         1           lseek
+  0.35    0.000006           6         1           sigaltstack
+  0.00    0.000000           0         1           prlimit64
+  0.00    0.000000           0         1           getrandom
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.001698          24        68         6 total
+
+```
+##  Comparison Table
+|                 | `diff`                            | `cmp`                           |
+|------------------------|---------------------------------|----------------------------------|
+| **Time Measurement**   | Excution time is better | real and kernal time are better |
+| **System Interaction Identification** | interactes with memory managment, file system , signal, process management stacks  | interactes with memory managment, file system , signal, process management stacks |
+| **Syscall Time Breakdown** | 0.002084  sec | 0.001698 sec |
+
+**Performance Evaluation**       diff is better 
+
