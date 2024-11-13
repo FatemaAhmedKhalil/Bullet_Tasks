@@ -113,7 +113,7 @@ strace -c find
 ##  Comparison Table
 |                 | `ls`                            | `find`                           |
 |------------------------|---------------------------------|----------------------------------|
-| **Time Measurement**   | Kernal time is better           | Excution time is better
+| **Time Measurement**   | Kernal(sys) time is better           | Excution(user) time is better
 | **System Interaction Identification** | interactes with memory managment, network, file system, signal, process management stacks | interactes with memory managment, network, file system, signal, process management stacks |
 | **Syscall Time Breakdown** | 0.000844 sec | 0.477333 sec |
 
@@ -125,3 +125,112 @@ strace -c find
 `cp` Copy files and directories.
 
 `rsync`  Transfer files either to or from a remote host (but not between two remote hosts).
+
+
+# Time Measurement
+```bash
+time cp
+```
+```plaintext
+real	0m0.004s
+user	0m0.001s
+sys	0m0.003s
+```
+
+```bash
+time rsync
+```
+```plaintext
+real	0m0.144s
+user	0m0.009s
+sys	0m0.005s
+
+```
+# System Interaction Identification
+```bash
+strace -e trace=network cp -a 
+strace -e trace=memory cp -a 
+strace -e trace=file cp -a
+strace -e trace=process cp -a
+strace -e trace=signal cp -a 
+```
+
+```bash
+strace -e trace=network rsync -a 
+strace -e trace=memory rsync -a 
+strace -e trace=file rsync -a
+strace -e trace=process rsync -a
+strace -e trace=signal rsync -a
+```
+
+# Syscall Time Breakdown
+```bash
+strace -c cp
+```
+```plaintext
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 29.42    0.000750          27        27           mmap
+ 24.60    0.000627         627         1           execve
+ 13.89    0.000354          35        10           mprotect
+  8.47    0.000216          16        13         3 openat
+  3.92    0.000100           7        13           close
+  3.69    0.000094          10         9           read
+  3.18    0.000081           8        10           newfstatat
+  2.12    0.000054          13         4           pread64
+  2.08    0.000053          26         2         2 statfs
+  2.04    0.000052          52         1           munmap
+  1.69    0.000043          14         3           brk
+  0.82    0.000021          10         2         1 arch_prctl
+  0.71    0.000018           4         4           write
+  0.71    0.000018           9         2         2 access
+  0.55    0.000014          14         1           prlimit64
+  0.55    0.000014          14         1           getrandom
+  0.47    0.000012          12         1           set_tid_address
+  0.47    0.000012          12         1           rseq
+  0.43    0.000011          11         1           set_robust_list
+  0.12    0.000003           3         1           geteuid
+  0.08    0.000002           2         1         1 lseek
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.002549          23       108         9 total
+```
+```bash
+strace -c rsync
+```
+```plaintext
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 69.83    0.000500           2       185           write
+  7.54    0.000054           1        38           mmap
+  7.54    0.000054           3        14           mprotect
+  4.05    0.000029           1        16           futex
+  1.96    0.000014           1        13           read
+  1.40    0.000010           1         6           rt_sigaction
+  1.40    0.000010           1        10           openat
+  1.12    0.000008           8         1           munmap
+  1.12    0.000008           1         5           brk
+  0.84    0.000006           0        10           close
+  0.84    0.000006           1         4           pread64
+  0.56    0.000004           0        10           newfstatat
+  0.28    0.000002           2         1           getegid
+  0.28    0.000002           1         2         1 arch_prctl
+  0.28    0.000002           2         1           prlimit64
+  0.28    0.000002           2         1           getrandom
+  0.28    0.000002           2         1           rseq
+  0.14    0.000001           1         1           geteuid
+  0.14    0.000001           1         1           set_tid_address
+  0.14    0.000001           1         1           set_robust_list
+  0.00    0.000000           0         1         1 access
+  0.00    0.000000           0         1           execve
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.000716           2       323         2 total
+
+```
+##  Comparison Table
+|                 | `cp`                            | `rsync`                           |
+|------------------------|---------------------------------|----------------------------------|
+| **Time Measurement**   | Kernal time, Excution time and real time are better | |
+| **System Interaction Identification** | interactes with memory managment, file system stacks | interactes with memory managment, network, file system, signal, process management stacks |
+| **Syscall Time Breakdown** | 0.002549 sec | 0.000716 sec |
+
+**Performance Evaluation**       cp is better 
