@@ -343,7 +343,7 @@ strace -c cmp
 | **System Interaction Identification** | interactes with memory managment, file system , signal, process management stacks  | interactes with memory managment, file system , signal, process management stacks |
 | **Syscall Time Breakdown** | 0.002084  sec | 0.001698 sec |
 
-**Performance Evaluation**       diff is better
+**Performance Evaluation**       cmp is better
 
 ---
 **sort** vs **uniq**
