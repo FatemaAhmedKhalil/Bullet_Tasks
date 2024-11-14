@@ -6,16 +6,16 @@
    ```
      
 2. **Navigate to the Project Directory**  
-   Make sure you are in the directory where your **executable** is located.
+   Make sure you are in the directory where the **executable** is located.
    
 3. **Run `strace -c` to Trace System Calls with Error Summary**  
-   The `-c` option provides a summary of the time spent, the number of calls, and any errors. Execute:
+   The `-c` option provides a summary of the time spent, the number of calls, and any errors:
    ```bash
    strace -c ./strace
    ```
    
 4. **Save Detailed Output to a Log File**  
-   If you want to save the detailed output to a file, use the `-o` option:
+   to save the detailed output to a file, use the `-o` option:
    ```bash
    strace -o strace.txt ./strace
    ```
