@@ -354,17 +354,21 @@ strace -c cmp
 
 # Time Measurement
 ```bash
-time sort
+time sort {{path/to/file}}
 ```
 ```plaintext
-??
+real	0m0.013s
+user	0m0.001s
+sys	0m0.001s
 ```
 
 ```bash
-time uniq
+time uniq {{path/to/file}}
 ```
 ```plaintext
-??
+real	0m0.101s
+user	0m0.000s
+sys	0m0.004s
 ```
 # System Interaction Identification
 ```bash
@@ -381,26 +385,81 @@ strace -e trace=process uniq -a
 ```
 # Syscall Time Breakdown
 ```bash
-strace -c sort
+strace -c sort {{path/to/file}}
 ```
 ```plaintext
-???
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ------------------
+ 19.96    0.000186           8        23           rt_sigaction
+ 16.20    0.000151          13        11           write
+  8.58    0.000080          20         4           mprotect
+  6.87    0.000064           7         9           mmap
+  6.12    0.000057           8         7           newfstatat
+  5.69    0.000053          13         4           openat
+  5.36    0.000050          50         1           munmap
+  4.94    0.000046           7         6           close
+  4.08    0.000038          19         2           sysinfo
+  3.65    0.000034           8         4           prlimit64
+  2.58    0.000024           8         3           brk
+  2.47    0.000023           7         3           read
+  1.18    0.000011           5         2         1 access
+  1.18    0.000011          11         1           sched_getaffinity
+  1.18    0.000011          11         1           getrandom
+  1.07    0.000010          10         1           fadvise64
+  0.97    0.000009           9         1           lseek
+  0.97    0.000009           9         1           fcntl
+  0.97    0.000009           4         2         1 arch_prctl
+  0.86    0.000008           8         1           getuid
+  0.86    0.000008           8         1           getgid
+  0.86    0.000008           8         1           geteuid
+  0.86    0.000008           8         1           getegid
+  0.86    0.000008           8         1           set_tid_address
+  0.86    0.000008           8         1           set_robust_list
+  0.86    0.000008           8         1           rseq
+  0.00    0.000000           0         4           pread64
+  0.00    0.000000           0         1           execve
+------ ----------- ----------- --------- --------- ------------------
+100.00    0.000932           9        98         2 total
 ```
 ```bash
-strace -c uniq
+strace -c uniq {{path/to/file}}
 ```
 ```plaintext
-???
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 36.30    0.000628         628         1           execve
+ 14.97    0.000259          28         9           mmap
+  9.65    0.000167          15        11           write
+  7.05    0.000122          30         4           openat
+  6.24    0.000108          27         4           mprotect
+  3.93    0.000068          68         1           munmap
+  3.76    0.000065          21         3           brk
+  3.64    0.000063           9         7           close
+  2.77    0.000048           9         5           newfstatat
+  2.14    0.000037           9         4           pread64
+  2.02    0.000035          11         3           read
+  1.39    0.000024          24         1         1 access
+  1.39    0.000024          12         2         1 arch_prctl
+  1.10    0.000019          19         1           getrandom
+  0.64    0.000011          11         1           prlimit64
+  0.58    0.000010          10         1           dup3
+  0.52    0.000009           9         1           lseek
+  0.52    0.000009           9         1           set_tid_address
+  0.46    0.000008           8         1           fadvise64
+  0.46    0.000008           8         1           set_robust_list
+  0.46    0.000008           8         1           rseq
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.001730          27        63         2 total
 ```
 
 ##  Comparison Table
 |                 | `sort`                            | `uniq`                           |
 |------------------------|---------------------------------|----------------------------------|
-| **Time Measurement**   | ?? | ?? |
+| **Time Measurement**   | Kernal time and real time are better  | Excution time is better  |
 | **System Interaction Identification** | interactes with memory managment, file system , signal and process management stacks  | interactes with memory managment, file system and process management stacks |
-| **Syscall Time Breakdown** | ??  sec | ?? sec |
+| **Syscall Time Breakdown** | 0.000932  sec | 0.001730 sec |
 
-**Performance Evaluation**       ?? is better
+**Performance Evaluation**       uniq is better
 
 ---
 **grep** vs **sed**
