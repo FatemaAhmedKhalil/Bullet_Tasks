@@ -71,9 +71,51 @@ pstree
 ![Terminal](Images/9.png)
 
 10. Redirect process output
-   ```bash
+```bash
 ping google.com >> ~/Downloads/files.txt
 ```
 [files.txt](https://drive.google.com/file/d/1gtrxCiymFvCbYsbbI-BuZfaGLbxc9Y4P/view?usp=drive_link)
 
 ![Terminal](Images/10.png)
+
+
+**Advanced Level**
+11. Track system calls of a process
+```bash
+strace ls
+```
+![Terminal](Images/11.png)
+
+12. Monitor file descriptors
+```bash
+cat &
+lsof -p 19879
+```
+![Terminal](Images/12.png)
+
+13. Process scheduling policies
+```bash
+sudo chrt -f 10 sleep 1000 &
+ps -o pd,ni,comm 20597
+ps -eo pd,ni,comm | grep sleep
+ps -o pd,ni,comm 20599
+sudo chrt -p 20599
+pstree
+```
+![Terminal](Images/13.1.png)  ![Terminal](Images/13.2.png)
+
+14. Create and terminate a zombie process
+![Terminal](Images/14.1.png)
+```bash
+ps aux | grep Z
+ps aux| grep zombie
+kill 22679
+```
+![Terminal](Images/14.2.png)  ![Terminal](Images/14.3.png)
+
+15. Limit resource usage
+```bash
+ulimit -t 10 dd if=/dev/zero of=/dev/null
+ulimit -a
+```
+![Terminal](Images/15.png)
