@@ -5,4 +5,4 @@
 ```bash
 ps aux
 ```
-![Terminal](Task_4/Images/1.png)
+![Terminal](Images/1.png)
