@@ -6,8 +6,8 @@ This repository contains solutions to tasks from the Embedded Linux Diploma, org
 - **Task_1**: [User Registration Application (Sign-Up)](Task_1/).
 - **Task_2**: [Using strace to Trace System Calls with Error Reporting](Task_2/).
 - **Task_3**: [Comparison between Various Commands](Task_3/).
-- **Task_4**: [Linux Processes Exercises 1](Task_4/).
-- **Task_4**: [Linux Processes Exercises 2](Task_5/).
+- **Task_4**: [Linux Processes Exercises](Task_4/).
+- **Task_4**: [File System Exercises](Task_5/).
 - ... 
 
 ## Task Details
