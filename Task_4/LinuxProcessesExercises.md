@@ -54,3 +54,18 @@ sleep 300 &
 pkill sleep
 ```
 ![Terminal](Images/7.png) 
+
+8. Niceness levels
+```bash
+nice -n 10 sleep 1000 &
+ps -o pid,ni,comm 13151
+sudo renice -n 5 -p 13151
+ps -o pid,ni,comm 13151
+```
+![Terminal](Images/8.png)
+
+9. View process hierarchy
+```bash
+pstree
+```
+![Terminal](Images/9.png)
