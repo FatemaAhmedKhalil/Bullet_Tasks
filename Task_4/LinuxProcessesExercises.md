@@ -32,7 +32,6 @@ fg
 ping google.com
 `Ctrl+Z`
 fg
-`Ctrl+Z`
 bg
 ```
 ![Terminal](Images/5.png) 
