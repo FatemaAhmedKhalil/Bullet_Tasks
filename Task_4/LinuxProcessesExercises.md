@@ -69,3 +69,9 @@ ps -o pid,ni,comm 13151
 pstree
 ```
 ![Terminal](Images/9.png)
+
+10. Redirect process output
+   ```bash
+ping google.com >> ~/Downloads/files.txt
+```
+![Terminal](Images/10.png)
