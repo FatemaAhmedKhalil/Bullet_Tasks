@@ -7,7 +7,7 @@ This repository contains solutions to tasks from the Embedded Linux Diploma, org
 - **Task_2**: [Using strace to Trace System Calls with Error Reporting](Task_2/).
 - **Task_3**: [Comparison between Various Commands](Task_3/).
 - **Task_4**: [Linux Processes Exercises](Task_4/).
-- **Task_4**: [File System Exercises](Task_5/).
+- **Task_5**: [File System Exercises](Task_5/).
 - ... 
 
 ## Task Details
