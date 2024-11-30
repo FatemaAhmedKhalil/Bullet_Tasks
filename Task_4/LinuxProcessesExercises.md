@@ -20,3 +20,19 @@ jobs
 ps
 ```
 ![Terminal](Images/3.1.png)  ![Terminal](Images/3.2.png)
+
+4. Bring a background process to the foreground
+```bash
+fg
+```
+![Terminal](Images/4.png) 
+
+5. Suspend and resume a process
+```bash
+ping google.com
+`Ctrl+Z`
+fg
+`Ctrl+Z`
+bg
+```
+![Terminal](Images/5.png) 
