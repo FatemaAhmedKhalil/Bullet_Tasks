@@ -35,3 +35,22 @@ fg
 bg
 ```
 ![Terminal](Images/5.png) 
+
+
+**Intermediate Level**
+6. Kill a process by PID
+```bash
+sleep 300 &
+pgrep --full sleep
+kill 11530
+```
+![Terminal](Images/6.png) 
+
+7. Terminate multiple processes
+```bash
+sleep 100 &
+sleep 200 &
+sleep 300 &
+pkill sleep
+```
+![Terminal](Images/7.png) 
