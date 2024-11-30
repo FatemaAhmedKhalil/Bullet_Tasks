@@ -6,3 +6,17 @@
 ps aux
 ```
 ![Terminal](Images/1.png)
+
+2. Monitor system processes in real-time
+```bash
+top
+```
+![Terminal](Images/2.png)
+
+3. Start a background process
+```bash
+sleep 30 &
+jobs
+ps
+```
+![Terminal](Images/3.1.png)  ![Terminal](Images/3.2.png)
