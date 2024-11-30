@@ -74,5 +74,5 @@ pstree
    ```bash
 ping google.com >> ~/Downloads/files.txt
 ```
-[file.txt]([https://drive.google.com/file/d/1gtrxCiymFvCbYsbbI-BuZfaGLbxc9Y4P/view?usp=drive_link])
+![files.txt]([https://drive.google.com/file/d/1gtrxCiymFvCbYsbbI-BuZfaGLbxc9Y4P/view?usp=drive_link])
 ![Terminal](Images/10.png)
