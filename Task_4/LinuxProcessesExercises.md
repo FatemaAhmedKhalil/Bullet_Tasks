@@ -38,6 +38,7 @@ bg
 
 
 **Intermediate Level**
+
 6. Kill a process by PID
 ```bash
 sleep 300 &
@@ -80,6 +81,7 @@ ping google.com >> ~/Downloads/files.txt
 
 
 **Advanced Level**
+
 11. Track system calls of a process
 ```bash
 strace ls
