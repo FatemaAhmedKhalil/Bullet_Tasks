@@ -120,17 +120,18 @@ ulimit -a
 ```
 ![Terminal](Images/15.png)
 
-** Assignment **
-    1- Check how many cores do you have using top command.
-    ![Terminal](Images/16.png)
+**Assignment**
+1- Check how many cores do you have using top command.
+![Terminal](Images/16.png)
 
-    Create number of cores + 2 processes run in background.
-    ![Terminal](Images/16.1.png)
+2- Create number of cores + 2 processes run in background.
+![Terminal](Images/16.1.png)
 
-    Change priority for them:
-    Monitor them using top command, did you notice any change ?
-    ![Terminal](Images/16.1.png)  ![Terminal](Images/16.2.png)
-    ![Terminal](Images/16.3.png)  ![Terminal](Images/16.4.png)
+3- Change priority for them:
+Monitor them using top command, did you notice any change ?
+![Terminal](Images/16.1.png)  ![Terminal](Images/16.2.png)
+![Terminal](Images/16.3.png)  ![Terminal](Images/16.4.png)
+`when ni value changed, Pr changed to with shift +20`
 
-    Kill them all using killall command.
+4- Kill them all using killall command.
     ![Terminal](Images/16.5.png)
