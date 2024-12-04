@@ -33,9 +33,6 @@ Delete old Partitions
 Create 2 Primary Partitions
 ![Terminal](Images/5.png)
 
-Create 2 Extended Partitions
-![Terminal](Images/6.png)
-
 Write changes and save
 ![Terminal](Images/7.png)
 
