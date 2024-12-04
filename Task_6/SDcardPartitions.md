@@ -67,7 +67,7 @@ ls /mountSDB2
 ```
 ![Terminal](Images/12.png)
 
-- Mounting points doesn't exists.
+- After Rebooting, Mounting points doesn't exists.
 ![Terminal](Images/13.png)
 
 -  Adding `/etc/fstab` file 
@@ -75,8 +75,6 @@ ls /mountSDB2
 sudo blkid /dev/sdc1
 sudo blkid /dev/sdc2
 ```
-/dev/sdc1: UUID="97c3f930-c7ba-4d52-bb77-6933dffbf42b" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="ba7ab280-01"
-/dev/sdc2: UUID="8bcc9cda-d03f-4964-b41f-097a3dd6aeda" BLOCK_SIZE="4096" TYPE="ext2" PARTUUID="ba7ab280-02"
 
 ![Terminal](Images/14.png)
 
@@ -101,6 +99,6 @@ df -h
 `sudo mount -a` returns nothing `Everything is correct`
 ![Terminal](Images/17.png)
 
-- Mounting points still exists.
+- After Rebooting, Mounting points still exists.
 ![Terminal](Images/18.png)
 
