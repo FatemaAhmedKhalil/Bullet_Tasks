@@ -8,6 +8,7 @@ This repository contains solutions to tasks from the Embedded Linux Diploma, org
 - **Task_3**: [Comparison between Various Commands](Task_3/).
 - **Task_4**: [Linux Processes Exercises](Task_4/).
 - **Task_5**: [File System Exercises](Task_5/).
+- **Task_6**:[Make Partitions on SD Card](Task_6/).
 - ... 
 
 ## Task Details
