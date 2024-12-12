@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
-Path=""
-read Path
+# Pass the Path as Arguments
+Path=$1
 
 # Get a Sub String
 Name=$(echo -e "${Path:6:4}")
