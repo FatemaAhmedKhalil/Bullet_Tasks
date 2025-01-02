@@ -10,6 +10,7 @@ This repository contains solutions to tasks from the Embedded Linux Diploma, org
 - **Task_5**: [File System Exercises](Task_5/).
 - **Task_6**: [Make Partitions on SD Card](Task_6/).
 - **Task_7**: [Introduction to Bash](Task_7/).
+- **Task_8**: [PCAP Analyzer Script](https://github.com/FatemaAhmedKhalil/kernel-graduation-project.git).
 - ... 
 
 ## Task Details
