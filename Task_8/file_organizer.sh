@@ -61,4 +61,5 @@ organize_files() {
     done
 }
 
-organize_files  # Call the function to organize files
+# Run organize files function 
+organize_files  
