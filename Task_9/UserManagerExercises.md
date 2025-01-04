@@ -15,13 +15,13 @@ touch secret.txt
 ```bash
 chmod go-r secret.txt 
 ```
-![Terminal](Images/3.png)
+![Terminal](Images/2.png)
 
 4- Change the ownership of the file to a different user.
 ```bash
  chown games secret.txt
 ```
-![Terminal](Images/2.png)
+![Terminal](Images/3.png)
 
 5- Try accessing the file from the original and the different user accounts to observe the access permissions in action.
 ```bash
