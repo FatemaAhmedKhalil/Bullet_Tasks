@@ -3,6 +3,7 @@
 ## Exercise 1 ## 
 ### File Permissions and Ownership ###
 1- Create a directory called access_practice.
+
 2- Inside the directory, create a file named secret.txt.
 ```bash
 mkdir access_practice
