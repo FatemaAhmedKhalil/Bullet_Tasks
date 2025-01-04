@@ -33,3 +33,28 @@ sudo -u games cat secret.txt
 
 ## Exercise 2 ## 
 ### User and Group Management ###
+1- Create a new user named user1.
+2- Create a new group named group1.
+3- Add user1 to group1.
+```bash
+sudo useradd user1
+sudo groupadd group1
+sudo usermod -aG group1 user1
+```
+
+4- Change the ownership of secret.txt to user1 and group1.
+5- Set the file permissions to allow read and write access for the owner and the group.
+```bash
+sudo chown user1:group1 secret.txt
+sudo chmod ug+rw secret.txt
+```
+![Terminal](Images/5.png)
+
+6- Test accessing the file both as user1 and a different user to understand group-based access control.
+```bash
+cat secret.txt
+sudo -u user1 cat secret.txt
+groups user1
+groups Fatema
+```
+![Terminal](Images/6.png)
