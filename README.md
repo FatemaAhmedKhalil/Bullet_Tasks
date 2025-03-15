@@ -13,6 +13,7 @@ This repository contains solutions to tasks from the Embedded Linux Diploma, org
 - **Task_8**:  [Advanced Bash Exercises](Task_8/).
 - **Task_9**:  [User Manager Exercises](Task_9/).
 - **Task_10**: [PCAP Analyzer Script](https://github.com/FatemaAhmedKhalil/kernel-graduation-project.git).
+- **Task_11**: [Yocto Final Project](https://github.com/FatemaAhmedKhalil/Yocto_Project_RaspberryPi3.git).
 
 ## Task Details
 Each task folder contains:
